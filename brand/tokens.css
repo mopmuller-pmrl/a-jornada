@@ -1,0 +1,202 @@
+/*
+  A JORNADA — Design Tokens
+  Identidade visual completa para uso em qualquer projeto.
+  Importe este arquivo no <head> do seu projeto:
+  <link rel="stylesheet" href="tokens.css">
+*/
+
+/* ── FONTES ── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+:root {
+
+  /* ── CORES PRIMÁRIAS ── */
+  --j-verde:        #4A5E3A;   /* Verde floresta — cor principal da marca */
+  --j-verde-c:      #7A9960;   /* Verde claro */
+  --j-verde-p:      #C8D9B8;   /* Verde pálido */
+  --j-verde-pp:     #EEF5E8;   /* Verde muito pálido / fundo sutil */
+
+  --j-ouro:         #B8935A;   /* Ouro — cor de destaque e CTAs */
+  --j-ouro-c:       #D4B483;   /* Ouro claro */
+  --j-ouro-e:       #8B6B3A;   /* Ouro escuro */
+
+  /* ── NEUTROS ── */
+  --j-marfim:       #FAF6EE;   /* Fundo principal claro */
+  --j-pergaminho:   #F5EFE3;   /* Fundo secundário / seções alternadas */
+  --j-carvao:       #2A2318;   /* Texto principal / fundo escuro */
+
+  /* ── CINZAS QUENTES ── */
+  --j-cinza-q:      #6B5F4A;   /* Cinza quente — texto corpo */
+  --j-cinza-m:      #9A8C78;   /* Cinza médio — texto secundário */
+  --j-cinza-c:      #C4B89E;   /* Cinza claro — bordas / ornamentos */
+
+  /* ── TIPOGRAFIA ── */
+  --j-font-display: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;  /* Títulos e display */
+  --j-font-body:    'Lora', 'EB Garamond', Georgia, serif;                /* Corpo de texto */
+  --j-font-ui:      'Raleway', 'Trebuchet MS', Arial, sans-serif;         /* Labels, botões, UI */
+
+  /* ── ESCALAS TIPOGRÁFICAS ── */
+  --j-text-label:   9px;    /* Labels em caixa alta com letter-spacing */
+  --j-text-xs:      12px;
+  --j-text-sm:      13px;
+  --j-text-base:    15px;
+  --j-text-md:      18px;
+  --j-text-lg:      24px;
+  --j-text-xl:      32px;
+  --j-text-2xl:     48px;
+  --j-text-3xl:     64px;
+  --j-text-display: clamp(64px, 12vw, 100px);
+
+  /* ── LETTER-SPACING ── */
+  --j-ls-label:     3px;   /* Para labels em caixa alta */
+  --j-ls-wide:      2px;   /* Para botões */
+  --j-ls-tight:    -2px;   /* Para títulos grandes */
+
+  /* ── ESPAÇAMENTOS ── */
+  --j-space-xs:     8px;
+  --j-space-sm:     16px;
+  --j-space-md:     24px;
+  --j-space-lg:     40px;
+  --j-space-xl:     64px;
+  --j-space-2xl:    80px;
+
+  /* ── BORDAS ── */
+  --j-radius-sm:    4px;
+  --j-radius-md:    8px;
+  --j-radius-lg:    12px;
+  --j-border-thin:  0.4px;
+  --j-border-base:  1.5px;
+  --j-border-thick: 3px;
+
+  /* ── SOMBRAS ── */
+  --j-shadow-ouro:  0 8px 32px rgba(184, 147, 90, 0.3);
+  --j-shadow-card:  0 2px 16px rgba(42, 35, 24, 0.08);
+  --j-shadow-dark:  0 4px 24px rgba(42, 35, 24, 0.15);
+
+  /* ── TRANSIÇÕES ── */
+  --j-transition:   all 0.3s ease;
+}
+
+/* ── CLASSES UTILITÁRIAS ── */
+
+/* Cores de texto */
+.j-text-verde    { color: var(--j-verde); }
+.j-text-ouro     { color: var(--j-ouro); }
+.j-text-ouro-c   { color: var(--j-ouro-c); }
+.j-text-marfim   { color: var(--j-marfim); }
+.j-text-carvao   { color: var(--j-carvao); }
+.j-text-cinza    { color: var(--j-cinza-q); }
+
+/* Cores de fundo */
+.j-bg-carvao     { background-color: var(--j-carvao); }
+.j-bg-verde      { background-color: var(--j-verde); }
+.j-bg-marfim     { background-color: var(--j-marfim); }
+.j-bg-pergaminho { background-color: var(--j-pergaminho); }
+.j-bg-ouro       { background-color: var(--j-ouro); }
+
+/* Tipografia */
+.j-display {
+  font-family: var(--j-font-display);
+  font-weight: 500;
+  line-height: 1.1;
+}
+.j-display-light {
+  font-family: var(--j-font-display);
+  font-weight: 300;
+}
+.j-body {
+  font-family: var(--j-font-body);
+  font-size: var(--j-text-base);
+  line-height: 1.85;
+}
+.j-label {
+  font-family: var(--j-font-ui);
+  font-size: var(--j-text-label);
+  letter-spacing: var(--j-ls-label);
+  text-transform: uppercase;
+}
+.j-btn {
+  font-family: var(--j-font-ui);
+  font-size: var(--j-text-sm);
+  font-weight: 700;
+  letter-spacing: var(--j-ls-wide);
+  text-transform: uppercase;
+}
+
+/* Ornamento diamante */
+.j-orna {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 32px 0;
+}
+.j-orna::before,
+.j-orna::after {
+  content: '';
+  flex: 1;
+  height: 0.4px;
+  background: var(--j-cinza-c);
+}
+.j-orna-d {
+  width: 7px;
+  height: 7px;
+  background: var(--j-ouro);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* Botão principal */
+.j-cta {
+  display: inline-block;
+  background: var(--j-ouro);
+  color: var(--j-carvao);
+  font-family: var(--j-font-ui);
+  font-size: var(--j-text-sm);
+  font-weight: 700;
+  letter-spacing: var(--j-ls-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 18px 48px;
+  transition: var(--j-transition);
+}
+.j-cta:hover {
+  background: var(--j-ouro-c);
+  transform: translateY(-2px);
+  box-shadow: var(--j-shadow-ouro);
+}
+
+/* Botão secundário */
+.j-cta-outline {
+  display: inline-block;
+  background: transparent;
+  color: var(--j-ouro);
+  border: 1.5px solid var(--j-ouro);
+  font-family: var(--j-font-ui);
+  font-size: var(--j-text-sm);
+  font-weight: 600;
+  letter-spacing: var(--j-ls-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 40px;
+  transition: var(--j-transition);
+}
+.j-cta-outline:hover {
+  background: var(--j-ouro);
+  color: var(--j-carvao);
+}
+
+/* Card com borda ouro */
+.j-card {
+  background: white;
+  border-left: var(--j-border-thick) solid var(--j-ouro);
+  padding: 20px 22px;
+}
+
+/* Linha decorativa */
+.j-linha {
+  width: 80px;
+  height: 0.5px;
+  background: var(--j-ouro-e);
+  opacity: 0.5;
+  margin: 0 auto 20px;
+}
