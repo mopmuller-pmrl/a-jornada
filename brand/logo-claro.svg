@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <!-- Logo versão clara — para fundos escuros: carvão ou verde -->
+
+  <!-- Linha decorativa superior -->
+  <line x1="160" y1="54" x2="240" y2="54" stroke="#8B6B3A" stroke-width="0.5" opacity="0.6"/>
+
+  <!-- Diamante central -->
+  <rect x="196" y="46" width="8" height="8" fill="#B8935A" transform="rotate(45 200 50)"/>
+
+  <!-- "A" pequeno acima -->
+  <text x="200" y="44" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-weight="300" fill="#FAF6EE" opacity="0.5" text-anchor="middle" letter-spacing="2">A</text>
+
+  <!-- Título principal -->
+  <text x="200" y="110" font-family="Cormorant Garamond, Georgia, serif" font-size="64" font-weight="500" fill="#FAF6EE" text-anchor="middle" letter-spacing="-1">Jornada</text>
+
+  <!-- Linha divisora com diamante -->
+  <line x1="120" y1="125" x2="184" y2="125" stroke="#B8935A" stroke-width="0.5" opacity="0.7"/>
+  <rect x="196" y="121" width="8" height="8" fill="#B8935A" transform="rotate(45 200 125)"/>
+  <line x1="216" y1="125" x2="280" y2="125" stroke="#B8935A" stroke-width="0.5" opacity="0.7"/>
+
+  <!-- Subtítulo -->
+  <text x="200" y="148" font-family="Cormorant Garamond, Georgia, serif" font-size="13" font-style="italic" font-weight="400" fill="#D4B483" text-anchor="middle" letter-spacing="1">Formação de Caráter</text>
+
+  <!-- Label inferior -->
+  <text x="200" y="168" font-family="Raleway, Arial, sans-serif" font-size="7" font-weight="600" fill="#8B6B3A" text-anchor="middle" letter-spacing="4">MONIQUE MÜLLER</text>
+</svg>
