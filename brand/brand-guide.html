@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Jornada — Guia de Identidade Visual</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+body {
+  font-family: var(--j-font-body);
+  background: var(--j-marfim);
+  color: var(--j-carvao);
+  margin: 0;
+  padding: 0;
+}
+
+/* ── LAYOUT ── */
+.guia-header {
+  background: var(--j-carvao);
+  padding: 80px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.guia-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(184,147,90,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(74,94,58,0.15) 0%, transparent 60%);
+}
+.guia-header-inner { position: relative; }
+.guia-titulo {
+  font-family: var(--j-font-display);
+  font-size: 56px;
+  font-weight: 500;
+  color: var(--j-marfim);
+  margin: 0 0 8px;
+  letter-spacing: -1px;
+}
+.guia-sub {
+  font-family: var(--j-font-ui);
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--j-ouro-c);
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.secao {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 64px 40px;
+  border-bottom: 0.4px solid var(--j-cinza-c);
+}
+.secao:last-child { border-bottom: none; }
+
+.secao-titulo-guia {
+  font-family: var(--j-font-ui);
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--j-cinza-m);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.secao-titulo-guia::after {
+  content: '';
+  flex: 1;
+  height: 0.4px;
+  background: var(--j-cinza-c);
+}
+
+/* ── LOGOS ── */
+.logos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.logo-box {
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.logo-box.dark  { background: var(--j-carvao); }
+.logo-box.verde { background: var(--j-verde); }
+.logo-box.light { background: var(--j-marfim); border: 0.4px solid var(--j-cinza-c); }
+.logo-nome {
+  font-family: var(--j-font-ui);
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--j-cinza-m);
+}
+.logo-box.dark  .logo-nome { color: var(--j-cinza-m); }
+.logo-box.verde .logo-nome { color: var(--j-verde-p); }
+.logo-box img, .logo-box object { width: 100%; max-width: 280px; height: auto; }
+
+/* ── CORES ── */
+.cores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+}
+.cor-item {
+  display: flex;
+  flex-direction: column;
+}
+.cor-amostra {
+  height: 80px;
+  border-radius: var(--j-radius-sm);
+  margin-bottom: 10px;
+  position: relative;
+}
+.cor-amostra.borda { border: 0.4px solid var(--j-cinza-c); }
+.cor-token {
+  font-family: var(--j-font-ui);
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: var(--j-cinza-m);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.cor-hex {
+  font-family: var(--j-font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--j-carvao);
+  margin-bottom: 2px;
+}
+.cor-nome {
+  font-family: var(--j-font-body);
+  font-size: 11px;
+  font-style: italic;
+  color: var(--j-cinza-q);
+}
+.grupo-titulo {
+  font-family: var(--j-font-ui);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--j-cinza-c);
+  margin: 32px 0 12px;
+}
+.grupo-titulo:first-child { margin-top: 0; }
+
+/* ── TIPOGRAFIA ── */
+.tipo-exemplos { display: flex; flex-direction: column; gap: 48px; }
+.tipo-item {}
+.tipo-meta {
+  font-family: var(--j-font-ui);
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--j-cinza-c);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 0.4px solid var(--j-cinza-c);
+}
+.tipo-ex-display {
+  font-family: var(--j-font-display);
+  font-size: 56px;
+  font-weight: 500;
+  color: var(--j-carvao);
+  line-height: 1;
+  letter-spacing: -1px;
+}
+.tipo-ex-display-it {
+  font-family: var(--j-font-display);
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--j-verde);
+  line-height: 1.2;
+}
+.tipo-ex-body {
+  font-family: var(--j-font-body);
+  font-size: 15px;
+  color: var(--j-cinza-q);
+  line-height: 1.85;
+  max-width: 520px;
+}
+.tipo-ex-label {
+  font-family: var(--j-font-ui);
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--j-cinza-m);
+}
+.tipo-ex-btn {
+  font-family: var(--j-font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--j-carvao);
+}
+.tipo-stack {
+  font-family: var(--j-font-ui);
+  font-size: 10px;
+  color: var(--j-cinza-m);
+  margin-top: 6px;
+}
+
+/* ── COMPONENTES ── */
+.comp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+.comp-item { display: flex; flex-direction: column; gap: 12px; }
+.comp-label {
+  font-family: var(--j-font-ui);
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--j-cinza-c);
+  margin-bottom: 4px;
+}
+.comp-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: var(--j-pergaminho);
+  border: 0.4px solid var(--j-cinza-c);
+  min-height: 100px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.comp-demo.dark { background: var(--j-carvao); }
+.comp-demo.verde { background: var(--j-verde); }
+
+/* Ornamento */
+.orna-demo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 200px;
+}
+.orna-demo-l { flex: 1; height: 0.4px; background: var(--j-cinza-c); }
+.orna-demo-d { width: 7px; height: 7px; background: var(--j-ouro); transform: rotate(45deg); flex-shrink: 0; }
+
+/* ── USO ── */
+.uso-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.uso-card {
+  background: var(--j-pergaminho);
+  padding: 32px;
+  border-radius: var(--j-radius-sm);
+}
+.uso-card-titulo {
+  font-family: var(--j-font-display);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--j-carvao);
+  margin-bottom: 12px;
+}
+.uso-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.uso-card li {
+  font-family: var(--j-font-body);
+  font-size: 13px;
+  color: var(--j-cinza-q);
+  line-height: 1.6;
+  padding-left: 16px;
+  position: relative;
+}
+.uso-card li::before {
+  content: '◆';
+  font-size: 5px;
+  color: var(--j-ouro);
+  position: absolute;
+  left: 0;
+  top: 5px;
+}
+
+/* ── TOKENS TABLE ── */
+.tokens-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.tokens-table th {
+  font-family: var(--j-font-ui);
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--j-cinza-m);
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 0.4px solid var(--j-cinza-c);
+}
+.tokens-table td {
+  padding: 10px 12px;
+  border-bottom: 0.4px solid var(--j-pergaminho);
+  vertical-align: middle;
+}
+.tokens-table tr:hover td { background: var(--j-pergaminho); }
+.tok-name { font-family: monospace; font-size: 12px; color: var(--j-verde); }
+.tok-val  { font-family: monospace; font-size: 12px; color: var(--j-cinza-q); }
+.tok-desc { font-family: var(--j-font-body); font-style: italic; font-size: 12px; color: var(--j-cinza-m); }
+
+@media (max-width: 640px) {
+  .logos-grid  { grid-template-columns: 1fr; }
+  .comp-grid   { grid-template-columns: 1fr; }
+  .uso-grid    { grid-template-columns: 1fr; }
+  .guia-titulo { font-size: 36px; }
+  .secao { padding: 48px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="guia-header">
+  <div class="guia-header-inner">
+    <div class="guia-sub">Identidade Visual</div>
+    <h1 class="guia-titulo">A Jornada</h1>
+    <div style="display:flex;align-items:center;gap:12px;max-width:200px;margin:20px auto 0;">
+      <div style="flex:1;height:.5px;background:var(--j-ouro);opacity:.6;"></div>
+      <div style="width:6px;height:6px;background:var(--j-ouro);transform:rotate(45deg);"></div>
+      <div style="flex:1;height:.5px;background:var(--j-ouro);opacity:.6;"></div>
+    </div>
+    <p style="font-family:var(--j-font-display);font-style:italic;font-size:16px;color:var(--j-ouro-c);margin-top:16px;">
+      Brand Guide · Monique Müller
+    </p>
+  </div>
+</header>
+
+<!-- LOGOS -->
+<section class="secao">
+  <div class="secao-titulo-guia">01 — Logo</div>
+  <div class="logos-grid">
+    <div class="logo-box dark">
+      <img src="logo.svg" alt="Logo A Jornada — versão clara">
+      <div class="logo-nome">Versão Clara · fundo escuro</div>
+    </div>
+    <div class="logo-box verde">
+      <img src="logo.svg" alt="Logo A Jornada — versão verde">
+      <div class="logo-nome">Versão Clara · fundo verde</div>
+    </div>
+    <div class="logo-box light">
+      <img src="logo-escuro.svg" alt="Logo A Jornada — versão escura">
+      <div class="logo-nome">Versão Escura · fundo claro</div>
+    </div>
+  </div>
+  <p style="font-family:var(--j-font-body);font-size:13px;color:var(--j-cinza-m);margin-top:24px;font-style:italic;">
+    Arquivos: <code>logo.svg</code> (fundo escuro) · <code>logo-escuro.svg</code> (fundo claro)
+  </p>
+</section>
+
+<!-- CORES -->
+<section class="secao">
+  <div class="secao-titulo-guia">02 — Paleta de Cores</div>
+
+  <div class="grupo-titulo">Verdes — cor principal da marca</div>
+  <div class="cores-grid">
+    <div class="cor-item">
+      <div class="cor-amostra" style="background:#4A5E3A;"></div>
+      <div class="cor-token">--j-verde</div>
+      <div class="cor-hex">#4A5E3A</div>
+      <div class="cor-nome">Verde floresta</div>
+    </div>
+    <div class="cor-item">
+      <div class="cor-amostra" style="background:#7A9960;"></div>
+      <div class="cor-token">--j-verde-c</div>
+      <div class="cor-hex">#7A9960</div>
+      <div class="cor-nome">Verde claro</div>
+    </div>
+    <div class="cor-item">
+      <div class="cor-amostra" style="background:#C8D9B8;"></div>
+      <div class="cor-token">--j-verde-p</div>
+      <div class="cor-hex">#C8D9B8</div>
+      <div class="cor-nome">Verde pálido</div>
+    </div>
+    <div class="cor-item">
+      <div class="cor-amostra borda" style="background:#EEF5E8;"></div>
+      <div class="cor-token">--j-verde-pp</div>
+      <div class="cor-hex">#EEF5E8</div>
+      <div class="cor-nome">Verde muito pálido</div>
+    </div>
+  </div>
+
+  <div class="grupo-titulo">Ouros — destaque e CTAs</div>
+  <div class="cores-grid">
+    <div class="cor-item">
+      <div class="cor-amostra" style="background:#B8935A;"></div>
+      <div class="cor-token">--j-ouro</div>
+      <div class="cor-hex">#B8935A</div>
+      <div class="cor-nome">Ouro principal</div>
+    </div>
+    <div class="cor-item">
+      <div class="cor-amostra" style="background:#D4B483;"></div>
+      <div class="cor-token">--j-ouro-c</div>
+      <div class="cor-hex">#D4B483</div>
+      <div class="cor-nome">Ouro claro</div>
+    </div>
+    <div class="cor-item">
+      <div class="cor-amostra" style="background:#8B6B3A;"></div>
+      <div class="cor-token">--j-ouro-e</div>
+      <div class="cor-hex">#8B6B3A</div>
+      <div class="cor-nome">Ouro escuro</div>
+    </div>
+  </div>
+
+  <div class="grupo-titulo">Neutros — fundos e texto</div>
+  <div class="cores-grid">
+    <div class="cor-item">
+      <div class="cor-amostra" style="background:#2A2318;"></div>
+      <div class="cor-token">--j-carvao</div>
+      <div class="cor-hex">#2A2318</div>
+      <div class="cor-nome">Carvão</div>
+    </div>
+    <div class="cor-item">
+      <div class="cor-amostra borda" style="background:#FAF6EE;"></div>
+      <div class="cor-token">--j-marfim</div>
+      <div class="cor-hex">#FAF6EE</div>
+      <div class="cor-nome">Marfim</div>
+    </div>
+    <div class="cor-item">
+      <div class="cor-amostra borda" style="background:#F5EFE3;"></div>
+      <div class="cor-token">--j-pergaminho</div>
+      <div class="cor-hex">#F5EFE3</div>
+      <div class="cor-nome">Pergaminho</div>
+    </div>
+    <div class="cor-item">
+      <div class="cor-amostra" style="background:#6B5F4A;"></div>
+      <div class="cor-token">--j-cinza-q</div>
+      <div class="cor-hex">#6B5F4A</div>
+      <div class="cor-nome">Cinza quente</div>
+    </div>
+    <div class="cor-item">
+      <div class="cor-amostra" style="background:#9A8C78;"></div>
+      <div class="cor-token">--j-cinza-m</div>
+      <div class="cor-hex">#9A8C78</div>
+      <div class="cor-nome">Cinza médio</div>
+    </div>
+    <div class="cor-item">
+      <div class="cor-amostra borda" style="background:#C4B89E;"></div>
+      <div class="cor-token">--j-cinza-c</div>
+      <div class="cor-hex">#C4B89E</div>
+      <div class="cor-nome">Cinza claro</div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPOGRAFIA -->
+<section class="secao">
+  <div class="secao-titulo-guia">03 — Tipografia</div>
+  <div class="tipo-exemplos">
+
+    <div class="tipo-item">
+      <div class="tipo-meta">Display — Cormorant Garamond · Títulos e wordmarks</div>
+      <div class="tipo-ex-display">A Jornada</div>
+      <div class="tipo-stack">font-family: var(--j-font-display) · weights: 300, 400, 500, 600</div>
+    </div>
+
+    <div class="tipo-item">
+      <div class="tipo-meta">Display Itálico — Subtítulos e destaques poéticos</div>
+      <div class="tipo-ex-display-it">Formação de Caráter para Crianças de 0 a 12 Anos</div>
+      <div class="tipo-stack">font-style: italic · color: --j-verde</div>
+    </div>
+
+    <div class="tipo-item">
+      <div class="tipo-meta">Body — Lora · Texto corrido e descrições</div>
+      <div class="tipo-ex-body">Um programa completo de formação de caráter para crianças de 0 a 12 anos — criado para ser vivido em casa, conduzido pela mãe, sem preparo especial.</div>
+      <div class="tipo-stack">font-family: var(--j-font-body) · font-size: 15px · line-height: 1.85</div>
+    </div>
+
+    <div class="tipo-item">
+      <div class="tipo-meta">Label — Raleway · Labels, categorias e eyebrows</div>
+      <div class="tipo-ex-label">O QUE DIZEM AS MÃES</div>
+      <div class="tipo-stack">font-size: 9px · letter-spacing: 3–4px · text-transform: uppercase</div>
+    </div>
+
+    <div class="tipo-item">
+      <div class="tipo-meta">Botão — Raleway Bold · CTAs e ações</div>
+      <div class="tipo-ex-btn">QUERO A COLEÇÃO COMPLETA</div>
+      <div class="tipo-stack">font-weight: 700 · font-size: 13px · letter-spacing: 2px</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPONENTES -->
+<section class="secao">
+  <div class="secao-titulo-guia">04 — Componentes</div>
+  <div class="comp-grid">
+
+    <div class="comp-item">
+      <div class="comp-label">Botão Principal</div>
+      <div class="comp-demo">
+        <a href="#" class="j-cta" onclick="return false;">Quero a Coleção</a>
+      </div>
+    </div>
+
+    <div class="comp-item">
+      <div class="comp-label">Botão Outline</div>
+      <div class="comp-demo dark">
+        <a href="#" class="j-cta-outline" onclick="return false;">Saiba Mais</a>
+      </div>
+    </div>
+
+    <div class="comp-item">
+      <div class="comp-label">Ornamento — Diamante</div>
+      <div class="comp-demo">
+        <div class="orna-demo">
+          <div class="orna-demo-l"></div>
+          <div class="orna-demo-d"></div>
+          <div class="orna-demo-l"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="comp-item">
+      <div class="comp-label">Card com Borda Ouro</div>
+      <div class="comp-demo" style="padding:16px;">
+        <div class="j-card" style="width:100%;">
+          <p style="font-family:var(--j-font-body);font-size:13px;font-style:italic;color:var(--j-cinza-q);margin:0;">
+            "Um programa que é ao mesmo tempo profundo e prático."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="comp-item">
+      <div class="comp-label">Label + Título</div>
+      <div class="comp-demo" style="flex-direction:column;align-items:flex-start;padding:24px 32px;">
+        <span class="j-label" style="color:var(--j-cinza-c);margin-bottom:8px;">Os 5 volumes</span>
+        <h2 style="font-family:var(--j-font-display);font-size:36px;font-weight:500;color:var(--j-carvao);margin:0;line-height:1.1;">A Jornada Completa</h2>
+      </div>
+    </div>
+
+    <div class="comp-item">
+      <div class="comp-label">Fundo Escuro com Ouro</div>
+      <div class="comp-demo dark" style="flex-direction:column;">
+        <span class="j-label" style="color:var(--j-ouro-e);margin-bottom:8px;">Oferta de lançamento</span>
+        <span style="font-family:var(--j-font-display);font-size:36px;color:var(--j-marfim);font-weight:500;">R$297</span>
+        <span style="font-family:var(--j-font-body);font-size:12px;color:var(--j-cinza-m);font-style:italic;margin-top:4px;">de R$445</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMO USAR -->
+<section class="secao">
+  <div class="secao-titulo-guia">05 — Como Usar em Outro Projeto</div>
+  <div class="uso-grid">
+    <div class="uso-card">
+      <div class="uso-card-titulo">No HTML</div>
+      <ul>
+        <li>Adicione <code style="font-size:11px;background:var(--j-verde-pp);padding:1px 4px;border-radius:2px;">&lt;link rel="stylesheet" href="tokens.css"&gt;</code> no &lt;head&gt;</li>
+        <li>Use as classes utilitárias: <code style="font-size:11px;">j-cta</code>, <code style="font-size:11px;">j-label</code>, <code style="font-size:11px;">j-display</code></li>
+        <li>Use as variáveis CSS: <code style="font-size:11px;">var(--j-verde)</code>, <code style="font-size:11px;">var(--j-ouro)</code></li>
+      </ul>
+    </div>
+    <div class="uso-card">
+      <div class="uso-card-titulo">No Canva</div>
+      <ul>
+        <li>Verde floresta: <strong>#4A5E3A</strong></li>
+        <li>Ouro: <strong>#B8935A</strong></li>
+        <li>Carvão (texto): <strong>#2A2318</strong></li>
+        <li>Marfim (fundo): <strong>#FAF6EE</strong></li>
+        <li>Título: Cormorant Garamond 500</li>
+        <li>Corpo: Lora Regular</li>
+        <li>Labels: Raleway 700 maiúsculo</li>
+      </ul>
+    </div>
+    <div class="uso-card">
+      <div class="uso-card-titulo">No Instagram</div>
+      <ul>
+        <li>Fundo principal: Marfim #FAF6EE</li>
+        <li>Fundo alternativo: Carvão #2A2318</li>
+        <li>Texto em destaque: Cormorant Garamond itálico</li>
+        <li>Labels: Raleway maiúsculo com espaçamento</li>
+        <li>Elemento decorativo: diamante ◆ em ouro</li>
+      </ul>
+    </div>
+    <div class="uso-card">
+      <div class="uso-card-titulo">No Figma / Adobe</div>
+      <ul>
+        <li>Importe o arquivo <code style="font-size:11px;">tokens.css</code> como base</li>
+        <li>Crie estilos de cor com cada hex</li>
+        <li>Fontes: instale via Google Fonts</li>
+        <li>Logo: importe <code style="font-size:11px;">logo.svg</code> e <code style="font-size:11px;">logo-escuro.svg</code></li>
+        <li>Ornamento: quadrado 7×7px rotacionado 45° em ouro</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TOKENS TABLE -->
+<section class="secao">
+  <div class="secao-titulo-guia">06 — Todos os Tokens</div>
+  <table class="tokens-table">
+    <thead>
+      <tr>
+        <th>Token</th>
+        <th>Valor</th>
+        <th>Uso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="tok-name">--j-verde</td><td class="tok-val">#4A5E3A</td><td class="tok-desc">Cor principal da marca, seções de destaque</td></tr>
+      <tr><td class="tok-name">--j-verde-c</td><td class="tok-val">#7A9960</td><td class="tok-desc">Verde médio, hover states</td></tr>
+      <tr><td class="tok-name">--j-verde-p</td><td class="tok-val">#C8D9B8</td><td class="tok-desc">Verde pálido, bordas sutis em fundo escuro</td></tr>
+      <tr><td class="tok-name">--j-verde-pp</td><td class="tok-val">#EEF5E8</td><td class="tok-desc">Fundo de cards em seção clara</td></tr>
+      <tr><td class="tok-name">--j-ouro</td><td class="tok-val">#B8935A</td><td class="tok-desc">CTAs, botões, ornamentos, bordas destaque</td></tr>
+      <tr><td class="tok-name">--j-ouro-c</td><td class="tok-val">#D4B483</td><td class="tok-desc">Ouro claro, texto em fundo escuro, hover</td></tr>
+      <tr><td class="tok-name">--j-ouro-e</td><td class="tok-val">#8B6B3A</td><td class="tok-desc">Ouro escuro, labels em fundo escuro</td></tr>
+      <tr><td class="tok-name">--j-marfim</td><td class="tok-val">#FAF6EE</td><td class="tok-desc">Fundo principal do site</td></tr>
+      <tr><td class="tok-name">--j-pergaminho</td><td class="tok-val">#F5EFE3</td><td class="tok-desc">Fundo alternado de seções</td></tr>
+      <tr><td class="tok-name">--j-carvao</td><td class="tok-val">#2A2318</td><td class="tok-desc">Texto principal, fundo hero e seções escuras</td></tr>
+      <tr><td class="tok-name">--j-cinza-q</td><td class="tok-val">#6B5F4A</td><td class="tok-desc">Texto de corpo e descrições</td></tr>
+      <tr><td class="tok-name">--j-cinza-m</td><td class="tok-val">#9A8C78</td><td class="tok-desc">Texto secundário, metadados</td></tr>
+      <tr><td class="tok-name">--j-cinza-c</td><td class="tok-val">#C4B89E</td><td class="tok-desc">Bordas, linhas, ornamentos</td></tr>
+      <tr><td class="tok-name">--j-font-display</td><td class="tok-val">Cormorant Garamond</td><td class="tok-desc">Títulos, wordmarks, display</td></tr>
+      <tr><td class="tok-name">--j-font-body</td><td class="tok-val">Lora</td><td class="tok-desc">Texto corrido, parágrafos</td></tr>
+      <tr><td class="tok-name">--j-font-ui</td><td class="tok-val">Raleway</td><td class="tok-desc">Labels, botões, UI elements</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--j-carvao);padding:48px 40px;text-align:center;">
+  <p style="font-family:var(--j-font-display);font-size:24px;font-weight:300;color:var(--j-marfim);margin:0 0 8px;">A Jornada</p>
+  <p style="font-family:var(--j-font-ui);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--j-ouro-e);">Brand Guide · Monique Müller</p>
+</footer>
+
+</body>
+</html>
